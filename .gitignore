@@ -1,0 +1,12 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+resume_jsons/tim_severance_resume.json
+resume_docx/Tim_Severance_Resume.docx
