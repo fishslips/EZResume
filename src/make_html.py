@@ -9,16 +9,16 @@ def generate_basics_section(resume):
         contact = person.get("contact", {})
         html += "  <div class='contact'>\n"
         if "email" in contact:
-            html += f"    <p>Email: {contact['email']}</p>\n"
+            html += f"    <p>{contact['email']}</p>\n"
         if "phone" in contact:
-            html += f"    <p>Phone: {contact['phone']}</p>\n"
+            html += f"    <p>{contact['phone']}</p>\n"
         if "address" in contact:
-            html += f"    <p>Address: {contact['address']}</p>\n"
+            html += f"    <p>{contact['address']}</p>\n"
         social = contact.get("social", [])
         if social:
             html += "    <ul class='social'>\n"
             for network in social:
-                html += f"      <li><a href='{network.get('url', '#')}'>{network.get('name', '')}</a></li>\n"
+                html += f"      <li><a href='{network.get('url', '#')}'>{network.get('display', '')}</a></li>\n"
             html += "    </ul>\n"
         html += "  </div>\n"
         if "summary" in person:
@@ -77,9 +77,10 @@ def generate_projects_section(resume):
     for project in projects:
         html += "  <div class='project-item'>\n"
         html += f"    <h3><a href='{project.get('url', '#')}'>{project.get('name', '')}</a></h3>\n"
+        # Dates are now directly below the project title.
+        html += f"    <p>{project.get('start_date', '')} to {project.get('end_date', '')}</p>\n"
         html += f"    <p>{project.get('description', '')}</p>\n"
         html += f"    <p>Role: {project.get('role', '')}</p>\n"
-        html += f"    <p>{project.get('start_date', '')} to {project.get('end_date', '')}</p>\n"
         technologies = project.get("technologies", [])
         if technologies:
             techs = ", ".join(technologies)
@@ -100,8 +101,9 @@ def generate_publications_section(resume):
     for pub in publications:
         html += "  <div class='publication-item'>\n"
         html += f"    <h3><a href='{pub.get('url', '#')}'>{pub.get('title', '')}</a></h3>\n"
-        html += f"    <p>Authors: {', '.join(pub.get('authors', []))}</p>\n"
+        # Publication date moved directly under the title.
         html += f"    <p>Publication Date: {pub.get('publication_date', '')}</p>\n"
+        html += f"    <p>Authors: {', '.join(pub.get('authors', []))}</p>\n"
         html += f"    <p>Publisher: {pub.get('publisher', '')}</p>\n"
         html += "  </div>\n"
     html += "</section>\n"
@@ -113,10 +115,18 @@ def generate_certifications_section(resume):
     for cert in certifications:
         html += "  <div class='certification-item'>\n"
         html += f"    <h3>{cert.get('name', '')}</h3>\n"
-        html += f"    <p>Institution: {cert.get('institution', '')}</p>\n"
+        # Date moved directly under the certification title.
         html += f"    <p>Date: {cert.get('date', '')}</p>\n"
+        html += f"    <p>Institution: {cert.get('institution', '')}</p>\n"
         html += "  </div>\n"
     html += "</section>\n"
+    return html
+
+def apply_css(html, css_path):
+    # Load CSS from a local file and apply it to the HTML string.
+    with open(css_path, 'r') as css_file:
+        css_content = css_file.read()
+    html = html.replace("</head>", f"  <style>{css_content}</style>\n</head>")
     return html
 
 def generate_full_html(resume):
@@ -134,5 +144,6 @@ def generate_full_html(resume):
     html += generate_publications_section(resume)
     html += generate_certifications_section(resume)
     html += "</body>\n</html>"
+    html = apply_css(html, "./css/style.css")
     return html
 

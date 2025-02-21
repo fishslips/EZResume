@@ -9,11 +9,8 @@
                 "social": [
                     {
                         "name": "LinkedIn",
+                        "display" : "in/johndoe",
                         "url": "https://www.linkedin.com/in/johndoe"
-                    },
-                    {
-                        "name": "GitHub",
-                        "url": "https://www.github.com/johndoe"
                     }
                 ]
             },

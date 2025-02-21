@@ -1,5 +1,6 @@
 import json
 from jinja2 import Environment, FileSystemLoader
+from html_to_pdf import *
 
 def load_config():
     with open("./conf/conf.json", "r") as file:
@@ -27,6 +28,9 @@ def main():
 
     data = read_json(json_resume)
     generate_html(data, template_path, template_name, out_path)
+
+    html_to_pdf(out_path, conf.get("css_path"), conf.get("pdf_out_path"))
+
 
 if __name__ == "__main__":
     main()
