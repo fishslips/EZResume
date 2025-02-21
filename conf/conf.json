@@ -1,0 +1,6 @@
+{
+    "json_resume" : "./resume_jsons/tim_severance_resume.json",
+    "template_path" : "./html_templates/",
+    "template_name" : "jinja_v1.html",
+    "html_out_path" : "./resume_html/html_out.html"
+}
