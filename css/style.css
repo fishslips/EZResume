@@ -16,6 +16,63 @@ body {
     max-width: 160mm; /* Set a max width for your content */
 }
 
+/* Reduce spacing between sections */
+/* Reduce spacing between sections */
+section {
+    margin-bottom: 3mm; /* Minimize spacing between sections */
+}
+
+/* Reduce spacing around all headers */
+h2, h3 {
+    margin-top: 2mm;
+    margin-bottom: 1mm;
+}
+
+/* Remove excess space between paragraphs */
+p {
+    margin: 1mm 0;
+}
+
+/* Reduce spacing for experience, education, projects, etc. */
+.education-item,
+.experience-item,
+.project-item,
+.publication-item,
+.certification-item {
+    margin-bottom: 2mm; /* Less space between each entry */
+    padding: 0;
+}
+
+/* Reduce space inside lists */
+ul {
+    margin: 0;
+    padding-left: 15px; /* Keep indentation but remove extra space */
+}
+
+li {
+    margin-bottom: 1mm; /* Minimal space between bullet points */
+}
+
+/* Adjust space between the date and title */
+.education-item > h3,
+.experience-item > h3,
+.project-item > h3,
+.publication-item > h3,
+.certification-item > h3 {
+    margin-bottom: 0;
+}
+
+.education-item > p:nth-of-type(1),
+.experience-item > p:nth-of-type(1),
+.project-item > p:nth-of-type(1),
+.publication-item > p:nth-of-type(1),
+.certification-item > p:nth-of-type(1) {
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+
+
 /* Center the title/name in the basics section */
 #basics h1 {
     text-align: center;
