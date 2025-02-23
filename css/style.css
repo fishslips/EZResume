@@ -8,7 +8,7 @@ body {
     width: 210mm;  /* A4 width */
     height: 297mm; /* A4 height */
     margin: 0 auto; /* Center horizontally with auto margin */
-    padding: 20mm; /* Optional: space inside the body for the content */
+    padding: 5mm; /* Optional: space inside the body for the content */
     box-sizing: border-box; /* Ensures padding doesn’t affect total width/height */
     /*font-family: 'Courier New', Courier, monospace;*/
     font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
@@ -119,7 +119,7 @@ li {
 .project-item > h3,
 .publication-item > h3,
 .certification-item > h3 {
-    margin-bottom: 0;
+    margin-bottom: 1.5mm;
     flex-basis: 70%;
 }
 
@@ -132,7 +132,7 @@ li {
     flex-basis: 28%;
     text-align: right;
     margin-top: 1mm;
-    margin-bottom: 0mm;
+    margin-bottom: 1.5mm;
     padding : 0;
 }
 

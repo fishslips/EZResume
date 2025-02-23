@@ -36,8 +36,9 @@ def generate_education_section(resume):
     html = "<section id='education'>\n  <h2>Education</h2>\n  <hr>\n"
     for school in education:
         html += "  <div class='education-item'>\n"
-        html += f"    <h3>{school.get('institution', '')} - {school.get('degree', '')}</h3>\n"
+        html += f"    <h3>{school.get('institution', '')}</h3>\n"
         html += f"    <p>{school.get('year')}</p>\n"
+        html += f"    <p><em>{school.get('degree', '')}</em></p>\n"
         if school.get("courses"):
             courses = ", ".join(school["courses"])
             html += f"    <p>Courses: {courses}</p>\n"
@@ -157,10 +158,10 @@ def generate_full_html(resume):
     html += generate_basics_section(resume)
     html += generate_education_section(resume)
     html += generate_experience_section(resume)
-    html += generate_skills_section(resume)
     html += generate_projects_section(resume)
     html += generate_publications_section(resume)
     html += generate_certifications_section(resume)
+    html += generate_skills_section(resume)
     html += "</body>\n</html>"
     html = apply_css(html, "./css/style.css")
     return html
