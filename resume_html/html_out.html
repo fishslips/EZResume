@@ -10,11 +10,15 @@
 }
 
 body {
+    
     width: 210mm;  /* A4 width */
     height: 297mm; /* A4 height */
     margin: 0 auto; /* Center horizontally with auto margin */
     padding: 20mm; /* Optional: space inside the body for the content */
     box-sizing: border-box; /* Ensures padding doesnâ€™t affect total width/height */
+    /*font-family: 'Courier New', Courier, monospace;*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
+    font-size: 10pt;
 }
 
 .container {
@@ -22,62 +26,46 @@ body {
     max-width: 160mm; /* Set a max width for your content */
 }
 
-/* Reduce spacing between sections */
+
 /* Reduce spacing between sections */
 section {
     margin-bottom: 3mm; /* Minimize spacing between sections */
 }
 
+h1 {
+    font-size: 16pt;
+    margin-bottom: 2mm;
+}
+
 /* Reduce spacing around all headers */
-h2, h3 {
+h2 {
+    font-size: 12pt;
     margin-top: 2mm;
+    margin-bottom: 1.5mm;
+}
+
+h3 {
+    font-size: 11pt;
+    margin-top: 1mm;
     margin-bottom: 1mm;
 }
 
 /* Remove excess space between paragraphs */
 p {
-    margin: 1mm 0;
-}
-
-/* Reduce spacing for experience, education, projects, etc. */
-.education-item,
-.experience-item,
-.project-item,
-.publication-item,
-.certification-item {
-    margin-bottom: 2mm; /* Less space between each entry */
-    padding: 0;
+    margin-top: .5mm;
+    margin-bottom: .5mm;
 }
 
 /* Reduce space inside lists */
 ul {
     margin: 0;
+    padding-top: 1mm;
     padding-left: 15px; /* Keep indentation but remove extra space */
 }
 
 li {
     margin-bottom: 1mm; /* Minimal space between bullet points */
 }
-
-/* Adjust space between the date and title */
-.education-item > h3,
-.experience-item > h3,
-.project-item > h3,
-.publication-item > h3,
-.certification-item > h3 {
-    margin-bottom: 0;
-}
-
-.education-item > p:nth-of-type(1),
-.experience-item > p:nth-of-type(1),
-.project-item > p:nth-of-type(1),
-.publication-item > p:nth-of-type(1),
-.certification-item > p:nth-of-type(1) {
-    margin-top: 0;
-    margin-bottom: 1mm;
-}
-
-
 
 /* Center the title/name in the basics section */
 #basics h1 {
@@ -117,102 +105,48 @@ li {
 /*-----------------------------------------------------------
     New rules: display title and date on the same line using flex
 ------------------------------------------------------------*/
-
-/* Education item: date is the first <p> */
-.education-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.education-item > h3 {
-    flex-basis: 70%;
-}
-.education-item > p:nth-of-type(1) {
-    flex-basis: 28%;
-    text-align: right;
-}
-/* All other paragraphs in education-item left aligned */
-.education-item > p:not(:nth-of-type(1)) {
-    flex-basis: 100%;
-    text-align: left;
-}
-
-/* Experience item: date is the first <p> */
-.experience-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.experience-item > h3 {
-    flex-basis: 70%;
-}
-.experience-item > p:nth-of-type(1) {
-    flex-basis: 28%;
-    text-align: right;
-}
-/* All other paragraphs in experience-item left aligned */
-.experience-item > p:not(:nth-of-type(1)) {
-    flex-basis: 100%;
-    text-align: left;
-}
-
-/* Project item: date is now the first <p> */
-.project-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.project-item > h3 {
-    flex-basis: 70%;
-}
-.project-item > p:nth-of-type(1) {
-    flex-basis: 28%;
-    text-align: right;
-}
-/* All other paragraphs in project-item left aligned */
-.project-item > p:not(:nth-of-type(1)) {
-    flex-basis: 100%;
-    text-align: left;
-}
-
-/* Publication item: date is now the first <p> */
-.publication-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.publication-item > h3 {
-    flex-basis: 70%;
-}
-.publication-item > p:nth-of-type(1) {
-    flex-basis: 28%;
-    text-align: right;
-}
-/* All other paragraphs in publication-item left aligned */
-.publication-item > p:not(:nth-of-type(1)) {
-    flex-basis: 100%;
-    text-align: left;
-}
-
-/* Certification item: date is now the first <p> */
+/* General flex container for all items */
+.education-item,
+.experience-item,
+.project-item,
+.publication-item,
 .certification-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    padding: 0;
+    margin-bottom: 2mm; /* Less space between each entry */
 }
+
+/* Title always takes 70% of the space */
+.education-item > h3,
+.experience-item > h3,
+.project-item > h3,
+.publication-item > h3,
 .certification-item > h3 {
+    margin-bottom: 0;
     flex-basis: 70%;
 }
+
+/* First paragraph (date) takes 28% and is right-aligned */
+.education-item > p:nth-of-type(1),
+.experience-item > p:nth-of-type(1),
+.project-item > p:nth-of-type(1),
+.publication-item > p:nth-of-type(1),
 .certification-item > p:nth-of-type(1) {
     flex-basis: 28%;
     text-align: right;
+    margin-top: 1mm;
+    margin-bottom: 0mm;
+    padding : 0;
 }
-/* All other paragraphs in certification-item left aligned */
+
+/* Remaining paragraphs are 100% wide and left-aligned */
+.education-item > p:not(:nth-of-type(1)),
+.experience-item > p:not(:nth-of-type(1)),
+.project-item > p:not(:nth-of-type(1)),
+.publication-item > p:not(:nth-of-type(1)),
 .certification-item > p:not(:nth-of-type(1)) {
     flex-basis: 100%;
     text-align: left;
@@ -221,39 +155,45 @@ li {
 </head>
 <body>
 <section id="basics">
-  <h1>John Doe</h1>
-  <hr>
+  <h1>Tim Severance</h1>
   <div class='contact'>
-    <p>john.doe@example.com</p>
-    <p>123-456-7890</p>
-    <p>123 Main St, Anytown, USA</p>
+    <p>Tim.Severance@proton.me</p>
+    <p>304-445-5424</p>
     <ul class='social'>
-      <li><a href='https://www.linkedin.com/in/johndoe'>in/johndoe</a></li>
+      <li><a href='https://www.linkedin.com/in/timothysseveranceii/'>in/timothysseveranceii</a></li>
+      <li><a href='https://www.github.com/fishslips'>gh/fishslips</a></li>
     </ul>
   </div>
-  <p>Experienced software engineer with a strong background in developing scalable web applications and working with cross-functional teams.</p>
+  <hr>
+  <p>Experienced software developer with a strong background in Computer Architecture, C++, Python and .NET</p>
 </section>
 <section id='education'>
   <h2>Education</h2>
   <hr>
   <div class='education-item'>
-    <h3>University of Technology - Bachelor of Science in Computer Science</h3>
-    <p>September 2012 to May 2016</p>
-    <p>Courses: Data Structures, Algorithms, Database Systems</p>
-    <p>GPA: 3.8</p>
-    <p>Honors: Dean's List, Scholarship Recipient</p>
+    <h3>Utah Valley University - B.S. in Computer Science</h3>
+    <p>2022</p>
   </div>
 </section>
 <section id='experience'>
   <h2>Experience</h2>
   <hr>
   <div class='experience-item'>
-    <h3>Tech Company - Senior Software Engineer</h3>
-    <p>January 2020 to Present</p>
+    <h3>Utah Valley University - Computer Science Instructor</h3>
+    <p>Sep 2022 to Present</p>
     <ul>
-      <li>Developed and maintained web applications using Python and JavaScript.</li>
-      <li>Led a team of 5 engineers to deliver high-quality software on time.</li>
-      <li>Collaborated with product managers and designers to define project requirements.</li>
+      <li>Developed and delivered lectures for Advanced C++, Algorithms and Data Structures, Design Patterns, and Computer Architecture.</li>
+      <li>Created and graded assignments, projects, and exams to assess student understanding and progress.</li>
+      <li>Provided mentorship and support to students, emphasizing the development of technical skills and career readiness in the software industry.</li>
+    </ul>
+  </div>
+  <div class='experience-item'>
+    <h3>Ironwood Experts LLC - Junior Software Developer</h3>
+    <p>May 2021 to Dec 2021</p>
+    <ul>
+      <li>Developed and maintained web applications using Python and Django.</li>
+      <li>Collaborated with cross-functional teams to define and design new features.</li>
+      <li>Optimized applications for performance and scalability.</li>
     </ul>
   </div>
 </section>
@@ -261,51 +201,58 @@ li {
   <h2>Skills</h2>
   <hr>
   <h3>Programming Languages</h3>
-  <p>Python, JavaScript, SQL</p>
+  <p>C++, C#, Python, Java</p>
   <h3>Frameworks</h3>
-  <p>Django, React</p>
+  <p>.NET</p>
   <h3>Databases</h3>
-  <p>PostgreSQL, MySQL</p>
-  <h3>Web Technologies</h3>
-  <p>HTML/CSS, Django, React</p>
-  <h3>Tools</h3>
-  <p>Git, Docker</p>
-  <h3>Other</h3>
-  <p>Agile Development, Scrum</p>
+  <p>PostgreSQL</p>
 </section>
 <section id='projects'>
   <h2>Projects</h2>
   <hr>
   <div class='project-item'>
-    <h3><a href='https://www.example.com'>Project Name</a></h3>
-    <p>January 2019 to March 2019</p>
-    <p>Brief description of the project and its purpose.</p>
-    <p>Role: Lead Developer</p>
-    <p>Technologies: Python, Django, JavaScript</p>
+    <h3><a href='#'>GradKit</a></h3>
+    <p>Nov 2024 to Present</p>
+    <p>A tool using canvasapi to pull assignments from Canvas</p>
+    <p>Technologies: Python, PostgreSQL, InstructLab, sqlalchemy, Docker</p>
     <ul>
-      <li>Implemented user authentication and authorization using Django's built-in features.</li>
-      <li>Designed and developed a responsive front-end using React.</li>
-      <li>Deployed the application to AWS using Docker containers.</li>
+      <li>Automated the process of pulling assignments from Canvas and storing them in a database.</li>
+      <li>Developed a user-friendly interface for instructors to view and manage assignments.</li>
+      <li>Implemented data visualization features to track student progress and performance.</li>
     </ul>
   </div>
-</section>
-<section id='publications'>
-  <h2>Publications</h2>
-  <hr>
-  <div class='publication-item'>
-    <h3><a href='https://www.example.com'>Publication Title</a></h3>
-    <p>Publication Date: Month Year</p>
-    <p>Authors: John Doe, Jane Smith</p>
-    <p>Publisher: Journal Name</p>
+  <div class='project-item'>
+    <h3><a href='#'>JSON_Resume</a></h3>
+    <p>Feb 2025 to Present</p>
+    <p>A tool to beat the slog of applying to jobs by automating the process with a JSON resume</p>
+    <p>Technologies: Python, JSON</p>
+    <ul>
+      <li>Automated the process of generating resumes in various formats using JSON data.</li>
+      <li>Integrated with job application platforms to streamline the application process.</li>
+      <li>Customized resume templates and content based on job requirements.</li>
+    </ul>
   </div>
-</section>
-<section id='certifications'>
-  <h2>Certifications</h2>
-  <hr>
-  <div class='certification-item'>
-    <h3>Certification Name</h3>
-    <p>Date: Month Year</p>
-    <p>Institution: Issuing Organization</p>
+  <div class='project-item'>
+    <h3><a href='#'>ImageConverter</a></h3>
+    <p>Mar 2024 to Present</p>
+    <p>python program to automate the conversion of images to a specified format</p>
+    <p>Technologies: Python, Pillow</p>
+    <ul>
+      <li>Developed a command-line tool to convert images to different formats and sizes.</li>
+      <li>Implemented batch processing to convert multiple images at once.</li>
+      <li>Optimized image quality and compression for web and mobile applications.</li>
+    </ul>
+  </div>
+  <div class='project-item'>
+    <h3><a href='#'>Tales of Aurelia</a></h3>
+    <p>Jan 2022 to Present</p>
+    <p>An anthology of short games created in Unreal Engine 5</p>
+    <p>Technologies: Unreal Engine 5, C++, Blueprints, Obsidian, Blender</p>
+    <ul>
+      <li>Designed and developed interactive gameplay mechanics and systems.</li>
+      <li>Created 3D models, animations, and visual effects using Blender and Unreal Engine.</li>
+      <li>Collaborated with artists, designers, and sound engineers to create immersive game experiences.</li>
+    </ul>
   </div>
 </section>
 </body>

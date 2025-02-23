@@ -1,0 +1,87 @@
+basics:
+    name: John Doe
+    contact:
+      email: john.doe@example.com
+      phone: "123-456-7890"
+      address: 123 Main St, Anytown, USA
+      social:
+          name: LinkedIn
+          display: in/johndoe
+          url: https://www.linkedin.com/in/johndoe
+    summary: "Experienced software engineer with a strong background in developing scalable web applications and working with cross-functional teams."
+
+education:
+    institution: University of Technology
+    degree: Bachelor of Science in Computer Science
+    start_date: "September 2012"
+    end_date: "May 2016"
+    courses:
+      - Data Structures
+      - Algorithms
+      - Database Systems
+    gpa: "3.8"
+    honors:
+      - "Dean's List"
+      - "Scholarship Recipient"
+
+experience:
+    organization: Tech Company
+    title: Senior Software Engineer
+    start_date: "January 2020"
+    end_date: Present
+    highlights:
+      - "Developed and maintained web applications using Python and JavaScript."
+      - "Led a team of 5 engineers to deliver high-quality software on time."
+      - "Collaborated with product managers and designers to define project requirements."
+
+skills:
+  programming_languages:
+    - Python
+    - JavaScript
+    - SQL
+  frameworks:
+    - Django
+    - React
+  databases:
+    - PostgreSQL
+    - MySQL
+  web_technologies:
+    - HTML/CSS
+    - Django
+    - React
+  tools:
+    - Git
+    - Docker
+  other:
+    - Agile Development
+    - Scrum
+
+projects:
+    name: Project Name
+    description: "Brief description of the project and its purpose."
+    url: https://www.example.com
+    technologies:
+      - Python
+      - Django
+      - JavaScript
+    highlights:
+      - "Implemented user authentication and authorization using Django's built-in features."
+      - "Designed and developed a responsive front-end using React."
+      - "Deployed the application to AWS using Docker containers."
+    start_date: "January 2019"
+    end_date: "March 2019"
+    role: Lead Developer
+
+publications:
+    title: Publication Title
+    url: https://www.example.com
+    authors:
+      - John Doe
+      - Jane Smith
+    publication_date: "Month Year"
+    publisher: Journal Name
+
+certifications:
+    name: Certification Name
+    institution: Issuing Organization
+    date: "Month Year"
