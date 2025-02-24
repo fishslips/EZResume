@@ -1,30 +1,25 @@
-import json
+from ruamel.yaml import YAML
 from make_html import *
 
 def main():
+    yaml = YAML(typ="rt")
+    with open("./conf/conf.yaml", "r", encoding="utf-8") as file:
+        conf = yaml.load(file)
+        # Assuming your YAML configuration has entries 'yaml_resume' and 'html_out_path'
+        yaml_resume = conf["yaml_resume"]
+        html_out_path = conf["html_out_path"]
 
-    with open("./conf/conf.json", "r", encoding="utf-8") as file:
-        conf = json.load(file)
-        json_resume = conf["json_resume"]
-        html_out_path = conf["html_out_path"] 
-    # Load resume data from JSON
-    
-    with open(json_resume, "r", encoding="utf-8") as file:
-        resume = json.load(file)
-    
+    # Load resume data from YAML
+    with open(yaml_resume, "r", encoding="utf-8") as file:
+        resume = yaml.load(file)
+        
+
     html_content = generate_full_html(resume)
-    
-    # Example: You could print it or write it to a file
+
+    # Write the generated HTML to a file
     with open(html_out_path, "w", encoding="utf-8") as f:
         f.write(html_content)
     print(f"Generated HTML resume saved to {html_out_path}")
-
-    # # Convert the HTML to PDF
-    # css_path = "./css/style.css"
-    # output_pdf_path = "./resume_pdf/resume.pdf"
-    # html_to_pdf(output_path, css_path, output_pdf_path)
-    # print(f"PDF resume saved to {output_pdf_path}")
-    
 
 if __name__ == "__main__":
     main()

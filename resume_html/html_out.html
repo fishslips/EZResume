@@ -13,7 +13,7 @@ body {
     width: 210mm;  /* A4 width */
     height: 297mm; /* A4 height */
     margin: 0 auto; /* Center horizontally with auto margin */
-    padding: 5mm; /* Space inside the body for the content */
+    padding: 12.5mm; /* Space inside the body for the content */
     box-sizing: border-box; /* Ensures padding doesnâ€™t affect total width/height */
     font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
     font-size: 10pt;
@@ -57,8 +57,8 @@ h1 {
 /* Reduce spacing around all headers */
 h2 {
     font-size: 12pt;
-    margin-top: 2mm;
-    margin-bottom: 1.5mm;
+    margin-top: 1.5mm;
+    margin-bottom: 1mm;
 }
 
 h3 {
@@ -78,6 +78,8 @@ ul {
     margin: 0;
     padding-top: 1mm;
     padding-left: 15px; /* Keep indentation but remove extra space */
+    /* max-width: 70ch; */
+    overflow-wrap: break-word;
 }
 
 li {
@@ -97,6 +99,12 @@ li {
 .contact > * {
     display: inline;
 }
+
+.summary {
+    text-align: center;
+}
+
+
 
 /* Add a vertical bar separator after every contact item except the last */
 .contact > *:not(:last-child)::after {
@@ -172,7 +180,7 @@ li {
 /* New rules to enhance the appearance of project summary and technologies sections */
 .project-description {
     font-style: italic;
-    margin: 2mm 0;
+    margin: .5mm 0;
 }
 
 .project-technologies {
@@ -190,7 +198,11 @@ li {
 .project-technologies .tech-item:not(:last-child)::after {
     content: ", ";
 }
-</style>
+
+#skills,
+#skills * {
+    font-size: 8pt;
+}</style>
 </head>
 <body>
 <section id="basics">
@@ -204,16 +216,7 @@ li {
     </ul>
   </div>
   <hr>
-  <p>Experienced software developer with a strong background in Computer Architecture, C++, Python and .NET</p>
-</section>
-<section id='education'>
-  <h2>Education</h2>
-  <hr>
-  <div class='education-item'>
-    <h3>Utah Valley University</h3>
-    <p>2022</p>
-    <p><em>B.S. in Computer Science</em></p>
-  </div>
+  <p class='summary'>Experienced software developer with a strong background in Computer Architecture, C++, Python and .NET</p>
 </section>
 <section id='experience'>
   <h2>Experience</h2>
@@ -222,9 +225,9 @@ li {
     <h3>Utah Valley University - Computer Science Instructor</h3>
     <p>Sep 2022 to Present</p>
     <ul>
-      <li>Developed and delivered lectures for Advanced C++, Algorithms and Data Structures, Design Patterns, and Computer Architecture</li>
-      <li>Created and assessed assignments, projects, and exams to evaluate student understanding and progress</li>
-      <li>Provided mentorship and support to students, emphasizing the development of technical skills and career readiness in the software industry</li>
+      <li>Created and delivered lectures for Advanced C++, Algorithms and Data Structures, Design Patterns, and Computer Architecture</li>
+      <li>Developed GradeKit to automate the grading process for student assignments</li>
+      <li>Exhibited strong software development expertise by designing, coding, and troubleshooting complex projects</li>
     </ul>
   </div>
   <div class='experience-item'>
@@ -238,7 +241,7 @@ li {
   </div>
 </section>
 <section id='projects'>
-  <h2>Projects</h2>
+  <h2>Project Experience</h2>
   <hr>
   <div class='project-item'>
     <h3>kxi Compiler, Assembler, and VM</h3>
@@ -252,8 +255,8 @@ li {
       <span class='tech-item'>ANTLR4</span>
     </div>
     <ul>
-      <li>Designed and implemented a compiler for the kxi programming language using .NET 6 and ANTLR4</li>
-      <li>Developed an assembler and virtual machine to execute compiled kxi programs</li>
+      <li>Designed and implemented a compiler, assembler, and vm for the kxi programming language using .NET 6 and ANTLR4</li>
+      <li>Developed a lexer and parser using ANTLR4 to generate an abstract syntax tree (AST) for intermediate and target code generation</li>
       <li>Implemented robust error handling and reporting for improved debugging and user experience</li>
     </ul>
   </div>
@@ -265,16 +268,16 @@ li {
       <span class='tech-label'>Technologies:</span>
       <span class='tech-item'>Python</span>
       <span class='tech-item'>PostgreSQL</span>
+      <span class='tech-item'>SQL</span>
       <span class='tech-item'>InstructLab</span>
       <span class='tech-item'>sqlalchemy</span>
       <span class='tech-item'>Docker</span>
       <span class='tech-item'>ETL</span>
     </div>
     <ul>
-      <li>Leveraged Canvas' REST API for automated retrieval, storage, and analysis of student assignments</li>
+      <li>Implemented an ETL pipeline using Canvas' REST API to extract and transform Canvas data before loading it into PostgreSQL</li>
       <li>Utilized AI to provide experimental feedback on student submissions</li>
-      <li>Leveraged PostgreSQL to store and manage student data locally</li>
-      <li>Unified diverse technologies using Docker for streamlined integration and deployment</li>
+      <li>Deployed a docker image for easy setup and use by instructors</li>
     </ul>
   </div>
   <div class='project-item'>
@@ -285,56 +288,26 @@ li {
       <span class='tech-label'>Technologies:</span>
       <span class='tech-item'>Python</span>
       <span class='tech-item'>JSON</span>
+      <span class='tech-item'>YAML</span>
       <span class='tech-item'>HTML</span>
       <span class='tech-item'>CSS</span>
       <span class='tech-item'>ETL</span>
     </div>
     <ul>
-      <li>Developed a dynamic resume generation system with an ETL pipeline approach that transforms JSON data into HTML, PDF, and other desired formats</li>
+      <li>Developed a dynamic resume generation system that extras and transforms JSON/YAML data into HTML and then PDF and DOCX formats</li>
       <li>Optimized the resume submission process by automating adjustments for specific job requirements, significantly increasing application efficiency</li>
       <li>Refined resume templates with adaptive designs tailored to unique job requirements</li>
     </ul>
   </div>
-  <div class='project-item'>
-    <h3>ImageConverter</h3>
-    <p>Mar 2024 to Present</p>
-    <p class='project-description'>python program to automate the conversion of images to a specified format</p>
-    <div class='project-technologies'>
-      <span class='tech-label'>Technologies:</span>
-      <span class='tech-item'>Python</span>
-      <span class='tech-item'>Pillow</span>
-    </div>
-    <ul>
-      <li>Developed a command-line tool to convert images to different formats and sizes</li>
-      <li>Implemented batch processing to convert multiple images at once</li>
-    </ul>
-  </div>
-  <div class='project-item'>
-    <h3>Tales of Aurelia</h3>
-    <p>Jan 2022 to Present</p>
-    <p class='project-description'>An anthology of short games created in Unreal Engine 5</p>
-    <div class='project-technologies'>
-      <span class='tech-label'>Technologies:</span>
-      <span class='tech-item'>Unreal Engine 5</span>
-      <span class='tech-item'>C++</span>
-      <span class='tech-item'>Blender</span>
-    </div>
-    <ul>
-      <li>Designed and developed modular physics-based gameplay mechanics in C++</li>
-      <li>Created 3D models, animations, and visual effects using Blender and Unreal Engine</li>
-      <li>Collaborated with artists, designers, and sound engineers to create immersive game experiences</li>
-    </ul>
-  </div>
 </section>
-<section id='skills'>
-  <h2>Skills</h2>
+<section id='education'>
+  <h2>Education</h2>
   <hr>
-  <h3>Programming Languages</h3>
-  <p>C++, C#, Python, Java</p>
-  <h3>Frameworks</h3>
-  <p>.NET</p>
-  <h3>Databases</h3>
-  <p>PostgreSQL</p>
+  <div class='education-item'>
+    <h3>Utah Valley University</h3>
+    <p>2022</p>
+    <p><em>B.S. in Computer Science</em></p>
+  </div>
 </section>
 </body>
 </html>

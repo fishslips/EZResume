@@ -1,0 +1,45 @@
+{basics: {name: Tim Severance, contact: {email: Tim.Severance@proton.me, phone: 304-445-5424,
+social: [{name: LinkedIn, display: in/timothysseveranceii, url: https://www.linkedin.com/in/timothysseveranceii/},
+ {name: GitHub, display: gh/fishslips, url: https://www.github.com/fishslips}]}, summary: 'Experienced
+software developer with a strong background in Computer Architecture, C++, Python
+and .NET'}, education: [{institution: Utah Valley University, degree: B.S. in Computer
+Science, year: 2022}], experience: [{organization: Utah Valley University, title: Computer
+Science Instructor, start_date: Sep 2022, end_date: Present, highlights: ['Developed
+and delivered lectures for Advanced C++, Algorithms and Data Structures, Design Patterns,
+and Computer Architecture', 'Created and assessed assignments, projects, and exams
+to evaluate student understanding and progress', 'Provided mentorship and support
+to students, emphasizing the development of technical skills and career readiness
+in the software industry']}, {organization: Ironwood Experts LLC, title: Junior Software
+Developer, start_date: May 2021, end_date: Dec 2021, highlights: [Developed and maintained
+software applications using python for data analysis and visualization, Collaborated
+with cross-functional teams to define and design new features, Optimized applications
+for performance and applied design patterns for improved scalability]}], skills: {
+Programming_Languages: [C++, C#, Python, Java], Frameworks: [.NET], Databases: [PostgreSQL]},
+projects: [{name: 'kxi Compiler, Assembler, and VM', description: A compiler for the
+kxi programming language, technologies: [C#, LINQ, .NET 6, ANTLR4], highlights: [
+Designed and implemented a compiler for the kxi programming language using .NET 6
+and ANTLR4, Developed an assembler and virtual machine to execute compiled kxi programs,
+Implemented robust error handling and reporting for improved debugging and user experience],
+start_date: Jan 2021, end_date: May 2022}, {name: GradeKit, description: A tool using
+canvasapi to pull assignments from Canvas, technologies: [Python, PostgreSQL, InstructLab,
+sqlalchemy, Docker, ETL], highlights: ["Leveraged Canvas' REST API for automated retrieval,
+storage, and analysis of student assignments", Utilized AI to provide experimental
+feedback on student submissions, Leveraged PostgreSQL to store and manage student
+data locally, Unified diverse technologies using Docker for streamlined integration
+and deployment], start_date: Nov 2024, end_date: Present}, {name: EZResume, description: A
+tool to beat the slog of applying to jobs by automating the process with a JSON resume,
+technologies: [Python, JSON, HTML, CSS, ETL], highlights: ['Developed a dynamic resume
+generation system with an ETL pipeline approach that transforms JSON data into HTML,
+PDF, and other desired formats', 'Optimized the resume submission process by automating
+adjustments for specific job requirements, significantly increasing application efficiency',
+Refined resume templates with adaptive designs tailored to unique job requirements],
+start_date: Feb 2025, end_date: Present}, {name: ImageConverter, description: python
+program to automate the conversion of images to a specified format, technologies: [
+Python, Pillow], highlights: [Developed a command-line tool to convert images to different
+formats and sizes, Implemented batch processing to convert multiple images at once],
+start_date: Mar 2024, end_date: Present}, {name: Tales of Aurelia, description: An
+anthology of short games created in Unreal Engine 5, technologies: [Unreal Engine
+5, C++, Blender], highlights: [Designed and developed modular physics-based gameplay
+mechanics in C++, 'Created 3D models, animations, and visual effects using Blender
+and Unreal Engine', 'Collaborated with artists, designers, and sound engineers to
+create immersive game experiences'], start_date: Jan 2022, end_date: Present}]}

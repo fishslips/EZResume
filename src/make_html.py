@@ -1,4 +1,3 @@
-import json
 
 def generate_basics_section(resume):
     basics = resume.get("basics", {})
@@ -23,7 +22,7 @@ def generate_basics_section(resume):
     html += "  </div>\n"
     html += "  <hr>\n"
     if "summary" in basics:
-        html += f"  <p>{basics['summary']}</p>\n"
+        html += f"  <p class='summary'>{basics['summary']}</p>\n"
     html += "</section>\n"
     return html
 
@@ -87,7 +86,7 @@ def generate_projects_section(resume):
     if not projects:
         return ""
 
-    html = "<section id='projects'>\n  <h2>Projects</h2>\n  <hr>\n"
+    html = "<section id='projects'>\n  <h2>Project Experience</h2>\n  <hr>\n"
     for project in projects:
         html += "  <div class='project-item'>\n"
         html += f"    <h3>{project.get('name', '')}</h3>\n"
@@ -158,9 +157,9 @@ def generate_full_html(resume):
     html += "  <title>Resume</title>\n"
     html += "</head>\n<body>\n"
     html += generate_basics_section(resume)
-    html += generate_education_section(resume)
     html += generate_experience_section(resume)
     html += generate_projects_section(resume)
+    html += generate_education_section(resume)
     html += generate_publications_section(resume)
     html += generate_certifications_section(resume)
     html += generate_skills_section(resume)

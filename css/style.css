@@ -7,7 +7,7 @@ body {
     width: 210mm;  /* A4 width */
     height: 297mm; /* A4 height */
     margin: 0 auto; /* Center horizontally with auto margin */
-    padding: 5mm; /* Space inside the body for the content */
+    padding: 12.5mm; /* Space inside the body for the content */
     box-sizing: border-box; /* Ensures padding doesn’t affect total width/height */
     font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
     font-size: 10pt;
@@ -51,8 +51,8 @@ h1 {
 /* Reduce spacing around all headers */
 h2 {
     font-size: 12pt;
-    margin-top: 2mm;
-    margin-bottom: 1.5mm;
+    margin-top: 1.5mm;
+    margin-bottom: 1mm;
 }
 
 h3 {
@@ -72,6 +72,8 @@ ul {
     margin: 0;
     padding-top: 1mm;
     padding-left: 15px; /* Keep indentation but remove extra space */
+    /* max-width: 70ch; */
+    overflow-wrap: break-word;
 }
 
 li {
@@ -91,6 +93,12 @@ li {
 .contact > * {
     display: inline;
 }
+
+.summary {
+    text-align: center;
+}
+
+
 
 /* Add a vertical bar separator after every contact item except the last */
 .contact > *:not(:last-child)::after {
@@ -166,7 +174,7 @@ li {
 /* New rules to enhance the appearance of project summary and technologies sections */
 .project-description {
     font-style: italic;
-    margin: 2mm 0;
+    margin: .5mm 0;
 }
 
 .project-technologies {
@@ -183,4 +191,9 @@ li {
 
 .project-technologies .tech-item:not(:last-child)::after {
     content: ", ";
+}
+
+#skills,
+#skills * {
+    font-size: 8pt;
 }
