@@ -10,15 +10,32 @@
 }
 
 body {
-    
     width: 210mm;  /* A4 width */
     height: 297mm; /* A4 height */
     margin: 0 auto; /* Center horizontally with auto margin */
-    padding: 5mm; /* Optional: space inside the body for the content */
+    padding: 5mm; /* Space inside the body for the content */
     box-sizing: border-box; /* Ensures padding doesnâ€™t affect total width/height */
-    /*font-family: 'Courier New', Courier, monospace;*/
     font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
     font-size: 10pt;
+}
+
+/* New rule: force a page break after elements with class "page"
+   Use this class to wrap content that fits one A4 page.
+*/
+.page {
+    page-break-after: always;
+}
+
+/* When printing, avoid breaking individual items across pages */
+@media print {
+    .education-item,
+    .experience-item,
+    .project-item,
+    .publication-item,
+    .certification-item {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
 }
 
 .container {
@@ -151,6 +168,28 @@ li {
     flex-basis: 100%;
     text-align: left;
 }
+
+/* New rules to enhance the appearance of project summary and technologies sections */
+.project-description {
+    font-style: italic;
+    margin: 2mm 0;
+}
+
+.project-technologies {
+    margin: 1mm 0;
+}
+
+.project-technologies .tech-label {
+    font-weight: bold;
+}
+
+.project-technologies .tech-item {
+    font-style: italic;
+}
+
+.project-technologies .tech-item:not(:last-child)::after {
+    content: ", ";
+}
 </style>
 </head>
 <body>
@@ -183,18 +222,18 @@ li {
     <h3>Utah Valley University - Computer Science Instructor</h3>
     <p>Sep 2022 to Present</p>
     <ul>
-      <li>Developed and delivered lectures for Advanced C++, Algorithms and Data Structures, Design Patterns, and Computer Architecture.</li>
-      <li>Created and graded assignments, projects, and exams to assess student understanding and progress.</li>
-      <li>Provided mentorship and support to students, emphasizing the development of technical skills and career readiness in the software industry.</li>
+      <li>Developed and delivered lectures for Advanced C++, Algorithms and Data Structures, Design Patterns, and Computer Architecture</li>
+      <li>Created and assessed assignments, projects, and exams to evaluate student understanding and progress</li>
+      <li>Provided mentorship and support to students, emphasizing the development of technical skills and career readiness in the software industry</li>
     </ul>
   </div>
   <div class='experience-item'>
     <h3>Ironwood Experts LLC - Junior Software Developer</h3>
     <p>May 2021 to Dec 2021</p>
     <ul>
-      <li>Developed and maintained web applications using Python and Django.</li>
-      <li>Collaborated with cross-functional teams to define and design new features.</li>
-      <li>Optimized applications for performance and scalability.</li>
+      <li>Developed and maintained software applications using python for data analysis and visualization</li>
+      <li>Collaborated with cross-functional teams to define and design new features</li>
+      <li>Optimized applications for performance and applied design patterns for improved scalability</li>
     </ul>
   </div>
 </section>
@@ -202,47 +241,88 @@ li {
   <h2>Projects</h2>
   <hr>
   <div class='project-item'>
-    <h3><a href='#'>GradKit</a></h3>
+    <h3>kxi Compiler, Assembler, and VM</h3>
+    <p>Jan 2021 to May 2022</p>
+    <p class='project-description'>A compiler for the kxi programming language</p>
+    <div class='project-technologies'>
+      <span class='tech-label'>Technologies:</span>
+      <span class='tech-item'>C#</span>
+      <span class='tech-item'>LINQ</span>
+      <span class='tech-item'>.NET 6</span>
+      <span class='tech-item'>ANTLR4</span>
+    </div>
+    <ul>
+      <li>Designed and implemented a compiler for the kxi programming language using .NET 6 and ANTLR4</li>
+      <li>Developed an assembler and virtual machine to execute compiled kxi programs</li>
+      <li>Implemented robust error handling and reporting for improved debugging and user experience</li>
+    </ul>
+  </div>
+  <div class='project-item'>
+    <h3>GradeKit</h3>
     <p>Nov 2024 to Present</p>
-    <p>A tool using canvasapi to pull assignments from Canvas</p>
-    <p>Technologies: Python, PostgreSQL, InstructLab, sqlalchemy, Docker</p>
+    <p class='project-description'>A tool using canvasapi to pull assignments from Canvas</p>
+    <div class='project-technologies'>
+      <span class='tech-label'>Technologies:</span>
+      <span class='tech-item'>Python</span>
+      <span class='tech-item'>PostgreSQL</span>
+      <span class='tech-item'>InstructLab</span>
+      <span class='tech-item'>sqlalchemy</span>
+      <span class='tech-item'>Docker</span>
+      <span class='tech-item'>ETL</span>
+    </div>
     <ul>
-      <li>Automated the process of pulling assignments from Canvas and storing them in a database.</li>
-      <li>Developed a user-friendly interface for instructors to view and manage assignments.</li>
-      <li>Implemented data visualization features to track student progress and performance.</li>
+      <li>Leveraged Canvas' REST API for automated retrieval, storage, and analysis of student assignments</li>
+      <li>Utilized AI to provide experimental feedback on student submissions</li>
+      <li>Leveraged PostgreSQL to store and manage student data locally</li>
+      <li>Unified diverse technologies using Docker for streamlined integration and deployment</li>
     </ul>
   </div>
   <div class='project-item'>
-    <h3><a href='#'>JSON_Resume</a></h3>
+    <h3>EZResume</h3>
     <p>Feb 2025 to Present</p>
-    <p>A tool to beat the slog of applying to jobs by automating the process with a JSON resume</p>
-    <p>Technologies: Python, JSON</p>
+    <p class='project-description'>A tool to beat the slog of applying to jobs by automating the process with a JSON resume</p>
+    <div class='project-technologies'>
+      <span class='tech-label'>Technologies:</span>
+      <span class='tech-item'>Python</span>
+      <span class='tech-item'>JSON</span>
+      <span class='tech-item'>HTML</span>
+      <span class='tech-item'>CSS</span>
+      <span class='tech-item'>ETL</span>
+    </div>
     <ul>
-      <li>Automated the process of generating resumes in various formats using JSON data.</li>
-      <li>Integrated with job application platforms to streamline the application process.</li>
-      <li>Customized resume templates and content based on job requirements.</li>
+      <li>Developed a dynamic resume generation system with an ETL pipeline approach that transforms JSON data into HTML, PDF, and other desired formats</li>
+      <li>Optimized the resume submission process by automating adjustments for specific job requirements, significantly increasing application efficiency</li>
+      <li>Refined resume templates with adaptive designs tailored to unique job requirements</li>
     </ul>
   </div>
   <div class='project-item'>
-    <h3><a href='#'>ImageConverter</a></h3>
+    <h3>ImageConverter</h3>
     <p>Mar 2024 to Present</p>
-    <p>python program to automate the conversion of images to a specified format</p>
-    <p>Technologies: Python, Pillow</p>
+    <p class='project-description'>python program to automate the conversion of images to a specified format</p>
+    <div class='project-technologies'>
+      <span class='tech-label'>Technologies:</span>
+      <span class='tech-item'>Python</span>
+      <span class='tech-item'>Pillow</span>
+    </div>
     <ul>
-      <li>Developed a command-line tool to convert images to different formats and sizes.</li>
-      <li>Implemented batch processing to convert multiple images at once.</li>
-      <li>Optimized image quality and compression for web and mobile applications.</li>
+      <li>Developed a command-line tool to convert images to different formats and sizes</li>
+      <li>Implemented batch processing to convert multiple images at once</li>
     </ul>
   </div>
   <div class='project-item'>
-    <h3><a href='#'>Tales of Aurelia</a></h3>
+    <h3>Tales of Aurelia</h3>
     <p>Jan 2022 to Present</p>
-    <p>An anthology of short games created in Unreal Engine 5</p>
-    <p>Technologies: Unreal Engine 5, C++, Blueprints, Obsidian, Blender</p>
+    <p class='project-description'>An anthology of short games created in Unreal Engine 5</p>
+    <div class='project-technologies'>
+      <span class='tech-label'>Technologies:</span>
+      <span class='tech-item'>Unreal Engine 5</span>
+      <span class='tech-item'>C++</span>
+      <span class='tech-item'>Blender</span>
+    </div>
     <ul>
-      <li>Designed and developed interactive gameplay mechanics and systems.</li>
-      <li>Created 3D models, animations, and visual effects using Blender and Unreal Engine.</li>
-      <li>Collaborated with artists, designers, and sound engineers to create immersive game experiences.</li>
+      <li>Designed and developed modular physics-based gameplay mechanics in C++</li>
+      <li>Created 3D models, animations, and visual effects using Blender and Unreal Engine</li>
+      <li>Collaborated with artists, designers, and sound engineers to create immersive game experiences</li>
     </ul>
   </div>
 </section>

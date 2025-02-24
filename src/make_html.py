@@ -1,30 +1,29 @@
 import json
 
 def generate_basics_section(resume):
-    basics = resume.get("basics", [])
+    basics = resume.get("basics", {})
     if not basics:
         return ""
     html = '<section id="basics">\n'
-    for person in basics:
-        html += f"  <h1>{person.get('name', '')}</h1>\n"
-        contact = person.get("contact", {})
-        html += "  <div class='contact'>\n"
-        if "email" in contact:
-            html += f"    <p>{contact['email']}</p>\n"
-        if "phone" in contact:
-            html += f"    <p>{contact['phone']}</p>\n"
-        if "address" in contact:
-            html += f"    <p>{contact['address']}</p>\n"
-        social = contact.get("social", [])
-        if social:
-            html += "    <ul class='social'>\n"
-            for network in social:
-                html += f"      <li><a href='{network.get('url', '#')}'>{network.get('display', '')}</a></li>\n"
-            html += "    </ul>\n"
-        html += "  </div>\n"
-        html += "  <hr>\n"  # horizontal line under the main heading
-        if "summary" in person:
-            html += f"  <p>{person['summary']}</p>\n"
+    html += f"  <h1>{basics.get('name', '')}</h1>\n"
+    contact = basics.get("contact", {})
+    html += "  <div class='contact'>\n"
+    if "email" in contact:
+        html += f"    <p>{contact['email']}</p>\n"
+    if "phone" in contact:
+        html += f"    <p>{contact['phone']}</p>\n"
+    if "address" in contact:
+        html += f"    <p>{contact['address']}</p>\n"
+    social = contact.get("social", [])
+    if social:
+        html += "    <ul class='social'>\n"
+        for network in social:
+            html += f"      <li><a href='{network.get('url', '#')}'>{network.get('display', '')}</a></li>\n"
+        html += "    </ul>\n"
+    html += "  </div>\n"
+    html += "  <hr>\n"
+    if "summary" in basics:
+        html += f"  <p>{basics['summary']}</p>\n"
     html += "</section>\n"
     return html
 
@@ -91,14 +90,17 @@ def generate_projects_section(resume):
     html = "<section id='projects'>\n  <h2>Projects</h2>\n  <hr>\n"
     for project in projects:
         html += "  <div class='project-item'>\n"
-        html += f"    <h3><a href='{project.get('url', '#')}'>{project.get('name', '')}</a></h3>\n"
+        html += f"    <h3>{project.get('name', '')}</h3>\n"
         # Dates are now directly below the project title.
         html += f"    <p>{project.get('start_date', '')} to {project.get('end_date', '')}</p>\n"
-        html += f"    <p>{project.get('description', '')}</p>\n"
+        html += f"    <p class='project-description'>{project.get('description', '')}</p>\n"
         technologies = project.get("technologies", [])
         if technologies:
-            techs = ", ".join(technologies)
-            html += f"    <p>Technologies: {techs}</p>\n"
+            html += "    <div class='project-technologies'>\n"
+            html += "      <span class='tech-label'>Technologies:</span>\n"
+            for tech in technologies:
+                html += f"      <span class='tech-item'>{tech}</span>\n"
+            html += "    </div>\n"
         highlights = project.get("highlights", [])
         if highlights:
             html += "    <ul>\n"

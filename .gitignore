@@ -10,3 +10,4 @@ wheels/
 .venv
 resume_jsons/tim_severance_resume.json
 resume_docx/Tim_Severance_Resume.docx
+resume_yamls/tim_severance_resume.yaml

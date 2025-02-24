@@ -4,15 +4,32 @@
 }
 
 body {
-    
     width: 210mm;  /* A4 width */
     height: 297mm; /* A4 height */
     margin: 0 auto; /* Center horizontally with auto margin */
-    padding: 5mm; /* Optional: space inside the body for the content */
+    padding: 5mm; /* Space inside the body for the content */
     box-sizing: border-box; /* Ensures padding doesn’t affect total width/height */
-    /*font-family: 'Courier New', Courier, monospace;*/
     font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
     font-size: 10pt;
+}
+
+/* New rule: force a page break after elements with class "page"
+   Use this class to wrap content that fits one A4 page.
+*/
+.page {
+    page-break-after: always;
+}
+
+/* When printing, avoid breaking individual items across pages */
+@media print {
+    .education-item,
+    .experience-item,
+    .project-item,
+    .publication-item,
+    .certification-item {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
 }
 
 .container {
@@ -144,4 +161,26 @@ li {
 .certification-item > p:not(:nth-of-type(1)) {
     flex-basis: 100%;
     text-align: left;
+}
+
+/* New rules to enhance the appearance of project summary and technologies sections */
+.project-description {
+    font-style: italic;
+    margin: 2mm 0;
+}
+
+.project-technologies {
+    margin: 1mm 0;
+}
+
+.project-technologies .tech-label {
+    font-weight: bold;
+}
+
+.project-technologies .tech-item {
+    font-style: italic;
+}
+
+.project-technologies .tech-item:not(:last-child)::after {
+    content: ", ";
 }
