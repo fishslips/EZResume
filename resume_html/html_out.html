@@ -10,17 +10,21 @@
 }
 
 body {
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column;
+    justify-content: center;
     width: 210mm;  /* A4 width */
     height: 297mm; /* A4 height */
     margin: 0 auto; /* Center horizontally with auto margin */
-    padding: 12.5mm; /* Space inside the body for the content */
+    padding: 12.5mm 12.5mm; /* Space inside the body for the content */
     box-sizing: border-box; /* Ensures padding doesnâ€™t affect total width/height */
     font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
     font-size: 10pt;
 }
 
-/* New rule: force a page break after elements with class "page"
-   Use this class to wrap content that fits one A4 page.
+/* 
+    New rule: force a page break after elements with class "page"
+    Use this class to wrap content that fits one A4 page.
 */
 .page {
     page-break-after: always;
@@ -216,7 +220,7 @@ li {
     </ul>
   </div>
   <hr>
-  <p class='summary'>Experienced software developer with a strong background in Computer Architecture, C++, Python and .NET</p>
+  <p class='summary'>Software developer with a strong background in Computer Architecture, C++, Python and .NET</p>
 </section>
 <section id='experience'>
   <h2>Experience</h2>
@@ -225,18 +229,18 @@ li {
     <h3>Utah Valley University - Computer Science Instructor</h3>
     <p>Sep 2022 to Present</p>
     <ul>
-      <li>Created and delivered lectures for Advanced C++, Algorithms and Data Structures, Design Patterns, and Computer Architecture</li>
-      <li>Developed GradeKit to automate the grading process for student assignments</li>
-      <li>Exhibited strong software development expertise by designing, coding, and troubleshooting complex projects</li>
+      <li>Designed and delivered coursework for Advanced C++, Algorithms and Data Structures, and Computer Architecture with up to 120 students per semester</li>
+      <li>Developed GradeKit, an AI-assisted grading tool that automates assignment grading and streamlines the feedback process</li>
+      <li>Built backend systems to integrate Canvas API data, simplifying administrative tasks for instructors</li>
     </ul>
   </div>
   <div class='experience-item'>
     <h3>Ironwood Experts LLC - Junior Software Developer</h3>
     <p>May 2021 to Dec 2021</p>
     <ul>
-      <li>Developed and maintained software applications using python for data analysis and visualization</li>
-      <li>Collaborated with cross-functional teams to define and design new features</li>
-      <li>Optimized applications for performance and applied design patterns for improved scalability</li>
+      <li>Developed "SCD tool" in python for analyzing and visualizing patent case data used by legal professionals</li>
+      <li>Contributed to expert witness analysis, with the tool supporting legal arguments in two successful court cases</li>
+      <li>Collaborated with engineers and legal experts to ensure the software met case-specific requirements</li>
     </ul>
   </div>
 </section>
@@ -244,28 +248,11 @@ li {
   <h2>Project Experience</h2>
   <hr>
   <div class='project-item'>
-    <h3>kxi Compiler, Assembler, and VM</h3>
-    <p>Jan 2021 to May 2022</p>
-    <p class='project-description'>A compiler for the kxi programming language</p>
-    <div class='project-technologies'>
-      <span class='tech-label'>Technologies:</span>
-      <span class='tech-item'>C#</span>
-      <span class='tech-item'>LINQ</span>
-      <span class='tech-item'>.NET 6</span>
-      <span class='tech-item'>ANTLR4</span>
-    </div>
-    <ul>
-      <li>Designed and implemented a compiler, assembler, and vm for the kxi programming language using .NET 6 and ANTLR4</li>
-      <li>Developed a lexer and parser using ANTLR4 to generate an abstract syntax tree (AST) for intermediate and target code generation</li>
-      <li>Implemented robust error handling and reporting for improved debugging and user experience</li>
-    </ul>
-  </div>
-  <div class='project-item'>
     <h3>GradeKit</h3>
     <p>Nov 2024 to Present</p>
     <p class='project-description'>A tool using canvasapi to pull assignments from Canvas</p>
     <div class='project-technologies'>
-      <span class='tech-label'>Technologies:</span>
+      <span class='tech-label'>Skills:</span>
       <span class='tech-item'>Python</span>
       <span class='tech-item'>PostgreSQL</span>
       <span class='tech-item'>SQL</span>
@@ -275,9 +262,10 @@ li {
       <span class='tech-item'>ETL</span>
     </div>
     <ul>
-      <li>Implemented an ETL pipeline using Canvas' REST API to extract and transform Canvas data before loading it into PostgreSQL</li>
-      <li>Utilized AI to provide experimental feedback on student submissions</li>
-      <li>Deployed a docker image for easy setup and use by instructors</li>
+      <li>Implemented an ETL pipeline using Canvas' REST API to extract, transform, and load data into PostgreSQL with sqlalchemy ORM, improving data accessibility</li>
+      <li>Integrated AI-driven feedback on student submissions, reducing instructor workload and improving response time</li>
+      <li>Deployed a Docker image for easy setup, enabling seamless adoption by other employees</li>
+      <li>Increased workplace efficiency by reducing manual processing time and improving turnaround speed</li>
     </ul>
   </div>
   <div class='project-item'>
@@ -285,7 +273,7 @@ li {
     <p>Feb 2025 to Present</p>
     <p class='project-description'>A tool to beat the slog of applying to jobs by automating the process with a JSON resume</p>
     <div class='project-technologies'>
-      <span class='tech-label'>Technologies:</span>
+      <span class='tech-label'>Skills:</span>
       <span class='tech-item'>Python</span>
       <span class='tech-item'>JSON</span>
       <span class='tech-item'>YAML</span>
@@ -294,9 +282,27 @@ li {
       <span class='tech-item'>ETL</span>
     </div>
     <ul>
-      <li>Developed a dynamic resume generation system that extras and transforms JSON/YAML data into HTML and then PDF and DOCX formats</li>
-      <li>Optimized the resume submission process by automating adjustments for specific job requirements, significantly increasing application efficiency</li>
-      <li>Refined resume templates with adaptive designs tailored to unique job requirements</li>
+      <li>Developed an automated resume generation system, transforming JSON/YAML data to HTML to PDF and DOCX formats</li>
+      <li>Optimized resume customization, allowing tailored job applications with minimal effort</li>
+      <li>Reduced resume creation and submission time by 80%, streamlining the job application process</li>
+    </ul>
+  </div>
+  <div class='project-item'>
+    <h3>Source Code Discovery Tool</h3>
+    <p>May 2021 to Dec 2021</p>
+    <p class='project-description'>A software solution for analyzing large-scale codebases for legal cases.</p>
+    <div class='project-technologies'>
+      <span class='tech-label'>Skills:</span>
+      <span class='tech-item'>Python</span>
+      <span class='tech-item'>Data Visualization</span>
+      <span class='tech-item'>MVC</span>
+      <span class='tech-item'>AGILE</span>
+      <span class='tech-item'>SDLC</span>
+    </div>
+    <ul>
+      <li>Developed and maintained a Python-based tool for patent case data analysis and visualization, enhancing decision-making for legal teams</li>
+      <li>Collaborated with cross-functional teams to implement new features, improving usability and efficiency</li>
+      <li>Designed scalable algorithms to compare thousands of lines across massive codebases, uncovering key similarities for patent litigation</li>
     </ul>
   </div>
 </section>

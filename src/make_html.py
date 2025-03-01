@@ -96,7 +96,7 @@ def generate_projects_section(resume):
         technologies = project.get("technologies", [])
         if technologies:
             html += "    <div class='project-technologies'>\n"
-            html += "      <span class='tech-label'>Technologies:</span>\n"
+            html += "      <span class='tech-label'>Skills:</span>\n"
             for tech in technologies:
                 html += f"      <span class='tech-item'>{tech}</span>\n"
             html += "    </div>\n"

@@ -12,7 +12,6 @@ def main():
     # Load resume data from YAML
     with open(yaml_resume, "r", encoding="utf-8") as file:
         resume = yaml.load(file)
-        
 
     html_content = generate_full_html(resume)
 

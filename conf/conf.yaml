@@ -1,3 +1,3 @@
-yaml_resume: "./resume_yamls/tim_severance_resume.yaml"
+yaml_resume: "./resume_yamls/tim_severance_adobe.yaml"
 "html_out_path" : "./resume_html/html_out.html"
 "pdf_out_path" : "./resume_pdf/pdf_out.pdf"

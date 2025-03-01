@@ -11,3 +11,8 @@ wheels/
 resume_jsons/tim_severance_resume.json
 resume_docx/Tim_Severance_Resume.docx
 resume_yamls/tim_severance_resume.yaml
+resume_yamls/tim_severance_adobe.yaml
+
+pdfs/Tim_Severance_Resume.pdf
+pdfs/TimSeverance_Saliense_Resume.pdf
+pdfs/Tim_Severeance_Adobe_Resume.pdf

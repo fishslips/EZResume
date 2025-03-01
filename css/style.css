@@ -4,17 +4,21 @@
 }
 
 body {
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column;
+    justify-content: center;
     width: 210mm;  /* A4 width */
     height: 297mm; /* A4 height */
     margin: 0 auto; /* Center horizontally with auto margin */
-    padding: 12.5mm; /* Space inside the body for the content */
+    padding: 12.5mm 12.5mm; /* Space inside the body for the content */
     box-sizing: border-box; /* Ensures padding doesn’t affect total width/height */
     font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
     font-size: 10pt;
 }
 
-/* New rule: force a page break after elements with class "page"
-   Use this class to wrap content that fits one A4 page.
+/* 
+    New rule: force a page break after elements with class "page"
+    Use this class to wrap content that fits one A4 page.
 */
 .page {
     page-break-after: always;
